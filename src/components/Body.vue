@@ -16,7 +16,7 @@
 
             </div>
             <child :person="number" :person2="number2" @func="show"></child>
-            <h1>计算结果：{{a}}</h1>
+            <h1>计算结果：{{parentCount}}</h1>
 
         </div>
 
@@ -24,7 +24,7 @@
         <div class="parent children"><h1>子控件输入</h1></div>
         <div class="count">
             <child1 @func1="show1"></child1>
-            <h1>计算结果：{{b}}</h1>
+            <h1>计算结果：{{childCount}}</h1>
         </div>
     </div>
 </template>
@@ -39,8 +39,8 @@
             return {
                 number: '',
                 number2: '',
-                a:"",
-                b:"",
+                parentCount:"",
+                childCount:"",
             }
         },
         components: {
@@ -50,11 +50,11 @@
         },
         methods: {
             show(data) {
-                this.a = data
+                this.parentCount= data
 
             },
             show1(data){
-                this.b = data
+                this.childCount = data
 
             }
         }
